@@ -26,12 +26,6 @@ export type {
 export function mdxNodeIntoPost(mdxNode: MdxNode): Post {
   const { frontmatter } = mdxNode;
 
-  if (!frontmatter)
-    throw Error(
-      `Post missing frontmatter. Post slug: ${
-        mdxNode.fields?.slug || "not defined"
-      }. Aborting.`
-    );
 
   if (!frontmatter.title)
     throw Error(
@@ -40,12 +34,7 @@ export function mdxNodeIntoPost(mdxNode: MdxNode): Post {
       }. Aborting.`
     );
 
-  if (!frontmatter.datePublished)
-    throw Error(
-      `Post missing publication date. Post slug: ${
-        mdxNode.fields?.slug || "not defined"
-      }. Aborting.`
-    );
+
 
   if (!mdxNode.fields)
     throw Error(
